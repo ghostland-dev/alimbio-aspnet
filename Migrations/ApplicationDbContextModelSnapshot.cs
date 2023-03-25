@@ -144,8 +144,8 @@ namespace AlimBio.Migrations
                     b.Property<string>("Fix")
                         .HasColumnType("longtext");
 
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("longblob");
+                    b.Property<string>("Image")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Mobile")
                         .HasColumnType("longtext");
