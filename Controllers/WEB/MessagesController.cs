@@ -66,6 +66,12 @@ namespace AlimBio.Controllers.WEB
         {
             if (ModelState.IsValid)
             {
+                var client = new SmtpClient("sandbox.smtp.mailtrap.io", 2525)
+                {
+                    Credentials = new NetworkCredential("***REMOVED***", "***REMOVED***"),
+                    EnableSsl = true
+                };
+                client.Send("from@adlimobio.fr", message.Salarie.Email.ToString(), message.Sujet.ToString(), message.Details.ToString());
 
                 _context.Add(message);
                 await _context.SaveChangesAsync();
